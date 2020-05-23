@@ -8,19 +8,24 @@ readlineInterface.on('line', function (line) {
 });
 
 readlineInterface.on('close', function () {
-    main();
+    main({input});
 });
 
-function main() {
-    const T = input.shift();
-    for (let C = 1; C <= T; C++) {
-        const N = parseInt(input.shift());
-        const M = Array.from({length: N}, function () {
-            return input.shift().split(' ').map(v => parseInt(v));
-        });
-        console.log(`Case #${C}: ${solve({M, N}).join(' ')}`)
+function take_input({input}) {
+    const N = parseInt(input.shift());
+    const M = Array.from({length: N}, function () {
+        return input.shift().split(' ').map(v => parseInt(v));
+    });
+    return {N, M};
+}
+
+function main({input}) {
+    const T = parseInt(input.shift());
+    for (let C = 1; C <= T; C += 1) {
+        console.log(`Case #${C + 1}: ${solve(take_input({input})).join(' ')}`)
     }
 }
+
 
 function trace({M, N}) {
     return M[N][N] + (0 < N ? trace({M, N: N - 1}) : 0)
@@ -40,10 +45,10 @@ function repeated_row({M}) {
 
 function repeated_column({M, N}) {
     let count = 0;
-    for(let column = 0; column < N; ++column) {
+    for (let column = 0; column < N; ++column) {
         const seen = new Map();
-        for(let row = 0; row < N; ++row) {
-            if(seen.get(M[row][column])) {
+        for (let row = 0; row < N; ++row) {
+            if (seen.get(M[row][column])) {
                 count += 1;
                 break;
             }
