@@ -1,0 +1,19 @@
+{
+  "name": "codejam",
+  "version": "1.0.0",
+  "description": "https://codingcompetitions.withgoogle.com/codejam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starain31/codejam.git"
+  },
+  "author": "staRain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starain31/codejam/issues"
+  },
+  "homepage": "https://github.com/starain31/codejam#readme"
+}
